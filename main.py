@@ -40,10 +40,26 @@ def get_db():
         db.close()
 
 
-@app.get("/")
+@app.get("/news")
 async def read_root():
-    return {"Hello": "World", "message": "FastAPI com PostgreSQL!"}
+    try:
+        if engine:
+            with engine.connect() as conn:
+                result = conn.execute(text("SELECT * from news")).fetchall()
+                news_items = []
+                for row in result:
+                    news_items.append({
+                        "id": row[0],
+                        "title": row[1],
+                        "info": row[2],
+                        "author": row[3],
+                        "created_at": row[4],
+                        "updated_at": row[5]
+                    })
 
+            return news_items
+    except Exception as e:
+        return {"status": "unhealthy", "database": "error", "error": str(e)}
 
 @app.get("/items/{item_id}")
 async def read_item(item_id: int, q: Union[str, None] = None):
@@ -61,3 +77,27 @@ async def health_check():
             return {"status": "unhealthy", "database": "disconnected"}
     except Exception as e:
         return {"status": "unhealthy", "database": "error", "error": str(e)}
+
+@app.get("/content")
+async def get_content():
+    try:
+        if engine:
+            with engine.connect() as conn:
+                result = conn.execute(text("SELECT * from content")).fetchall()
+                content_items = []
+                for row in result:
+                    content_items.append({
+                        "id": row[0],
+                        "name": row[1],
+                        "description": row[2],
+                        "type": row[3],
+                        "url": row[4]
+                    })
+
+            return {"status": "healthy", "database": "connected", "content": content_items}
+        else:
+            return {"status": "unhealthy", "database": "disconnected"}
+    except Exception as e:
+        return {"status": "unhealthy", "database": "error", "error": str(e)}
+
+
