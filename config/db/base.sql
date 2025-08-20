@@ -150,7 +150,7 @@ INSERT INTO content (name, description, type, url) VALUES
 ('Globo Esporte - Copas do Mundo', 'Especial com os melhores momentos das Copas do Mundo', 'video', 'https://globoplay.com/ge-copas'),
 ('Órfãos da Terra - Saga Integral', 'A história completa dos refugiados sírios em busca de uma nova vida', 'novel', 'https://globoplay.com/orfaos-terra-integral'),
 ('Lady Night - Temporadas Completas', 'Talk show de Tatá Werneck com todas as temporadas', 'video', 'https://globoplay.com/lady-night-completo'),
-('O Outro Lado do Paraíso - Director\'s Cut', 'Versão do diretor da novela de Walcyr Carrasco', 'novel', 'https://globoplay.com/outro-lado-paraiso-dc'),
+('O Outro Lado do Paraíso - Directors Cut', 'Versão do diretor da novela de Walcyr Carrasco', 'novel', 'https://globoplay.com/outro-lado-paraiso-dc'),
 ('Globo Rural - Especial Agronegócio', 'Série sobre inovações e desafios do agronegócio brasileiro', 'video', 'https://globoplay.com/rural-agronegocio'),
 ('Malhação - Coletânea Histórica', 'Os melhores momentos das 25 temporadas da série juvenil', 'novel', 'https://globoplay.com/malhacao-historica'),
 ('Altas Horas - Especial MPB', 'Edições dedicadas aos grandes nomes da música popular brasileira', 'video', 'https://globoplay.com/altas-horas-mpb'),
