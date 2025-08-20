@@ -17,6 +17,21 @@ services:
       - fastapi-network
     restart: unless-stopped
 
+  mcp:
+    build: .
+    ports:
+      - "8001:8001"
+    environment:
+      - MCP_PORT=8001
+    volumes:
+      - .:/app
+    networks:
+      - fastapi-network
+    restart: unless-stopped
+    command: ["python", "-u", "src/presentation/mcp/mcp_server.py"]
+    tty: true
+    stdin_open: true
+
   db:
     image: postgres:15
     environment:
