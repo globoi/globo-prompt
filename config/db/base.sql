@@ -1,3 +1,7 @@
+drop table if exists news;
+drop table if exists content;
+drop type if exists content_type;
+
 CREATE TABLE news (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
